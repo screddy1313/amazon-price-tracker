@@ -1,0 +1,69 @@
+
+{% extends "base.html" %}
+
+{% block title %} Search Page {% endblock %}
+
+
+{% block content %} 
+
+    <div class="container">
+
+        <form method='POST' class="form-register">
+            
+            {{ form.hidden_tag() }}
+
+            <div class="mb-3">
+                <label for="urlInput" class="form-label">{{ form.url.label }}  </label>
+                {{ form.url(class="form-control") }}
+
+            </div>
+    
+            {{ form.submit(class="btn btn-secondary")}}
+        
+        </form>
+
+    </div>
+
+<!-- Display the results when url is not none !!!  -->
+    {% if url %} 
+        <h2 class="heading">  Product Details </h2> <hr> 
+
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <!-- <img src="{{ url_for('static', filename='filename' )}}" alt="Image"> -->
+                    <img src="static/{{ results[0] }}.jpg" class="rounded mx-auto d-block" alt="Image" >
+                </div>
+                <div class="col">
+                    <div class="container ">
+                        <div class="row ">
+                            <div class="col-2"> Title </div>
+                            <div class="col-6"> {{ results[1] }} </div>
+                        </div>
+
+                        <div class="row ">
+                            <div class="col-2"> M. R. P. </div>
+                            <div class="col-4"> {{ results[2] }} </div>
+
+                        </div>
+                        <br>
+                        <div class="row ">
+                            <div class="col-2"> Current Price </div>
+                            <div class="col-4"> {{ results[3] }} </div>
+                        </div>
+                        <div class="row">
+                            <div class="d-grid gap-2 d-md-flex d-md-block">
+                                <!-- <button class="btn btn-primary margin" type="button">Track Now ? </button>        -->
+                                <a href="{{ url_for('home') }}" class="btn btn-primary margin me-md-4">Wanna Track ? </a>
+                                <a href="{{ url_for('home') }}" class="btn btn-primary margin"> Go to Amazon ? </a>
+
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>
+    {% endif %}
+    
+
+
+{% endblock %}

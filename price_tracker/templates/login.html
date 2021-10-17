@@ -1,0 +1,51 @@
+
+{% extends "base.html" %}
+
+{% block title %} Login {% endblock %}
+
+
+{% block style %}
+
+    <style>
+        .margin{
+            /* margin: auto; */
+            margin-top: 10px;
+        }
+        .container {
+            width: 500px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    </style>
+
+{% endblock %}
+
+
+{% block content %} 
+
+
+
+    <div class="container">
+        <h2> Login Page </h2>
+
+        <form method="POST" class="form-register">
+            {{ log_form.hidden_tag() }}
+            
+
+            <label  class="form-label">{{ log_form.email.label() }}  </label>  
+            {{ log_form.email(class="form-control") }}
+            
+    
+            <label  class="form-label">{{ log_form.password.label() }}  </label><br>
+            {{ log_form.password(class="form-control") }}
+
+            <br>
+            {{ log_form.submit(class="btn btn-secondary") }}
+
+
+
+        </form>
+
+    </div>
+
+{% endblock %}

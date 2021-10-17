@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		{% block title %}
+
+		{% endblock %}
+	</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <style>
+
+        body{
+            background-color: #97a0d4;
+            /* background-color: #212121; */
+        }
+        .heading{
+           text-align: center;
+       }
+    </style>
+    {% block style %}
+
+    {% endblock %}  
+
+</head>
+<body>
+
+    {% with messages = get_flashed_messages(with_categories=True) %}
+
+        {% if messages %}
+            {% for cat, msg in messages %}
+
+                <div class="alert alert-{{ cat }} alert-dismissible fade show">
+                        {{ msg }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+
+            {% endfor %}
+        {% endif %}
+
+    {% endwith %}
+
+
+
+		{% block content %}
+
+		{% endblock %}
+
+        
+</body>
+</html>

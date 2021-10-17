@@ -1,0 +1,51 @@
+
+{% extends "base.html" %}
+
+{% block title %} Register {% endblock %}
+
+
+{% block style %}
+    <style>
+        .margin{
+            /* margin: auto; */
+            margin-top: 10px;
+        }
+        .container {
+            width: 500px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    </style>
+{% endblock %}
+
+
+{% block content %} 
+
+    <div class="container">
+        <h2> Registration Page </h2>
+
+        <form method="POST" class="form-register">
+            {{ reg_form.hidden_tag() }}
+
+            <label  class="form-label">{{ reg_form.email.label() }}  </label>  
+            {{ reg_form.email(class="form-control") }}
+            
+    
+            <label  class="form-label">{{ reg_form.password.label }}  </label><br>
+            {{ reg_form.password(class="form-control") }}
+
+
+            <label  class="form-label">{{ reg_form.confirm.label }}  </label>
+            {{ reg_form.confirm(class="form-control") }}
+
+            <br>
+            {{ reg_form.submit(class="btn btn-secondary") }}
+
+
+
+
+        </form>
+
+    </div>
+
+{% endblock %}
